@@ -209,82 +209,16 @@
 	  <a href="preview.php" class="btn btn-default">Download Videos and Images</a>
     
       <div class="container-fluid text-center">
-         <div class="panel-group" id="accordion" <?php echo $displayStyle; ?> >
-               <div class="panel-heading">
-                  <h2 class="panel-title">
-                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Motion Settings</a>
-                  </h2>
-               </div>
-               <div id="collapseTwo" class="panel-collapse collapse">
-                  <div class="panel-body">
-                     <table class="settingsTable">
-                        <tr>
-                          <td>Motion Vector Preview:</td>
-                          <td>
-                            <select onchange="send_cmd('vp ' + this.value);setTimeout(function(){location.reload(true);}, 1000);" id="preview_select"><?php makeOptions($options_vp, 'vector_preview'); ?></select>
-                          </td>
-                        </tr>
-                        <tr>
-                           <td>Noise level (1-255):</td>
-                           <td>
-                              <?php makeInput('motion_noise', 5); ?><input type="button" value="OK" onclick="send_cmd('mn ' + document.getElementById('motion_noise').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Threshold (1-32000):</td>
-                           <td>
-                              <?php makeInput('motion_threshold', 5); ?><input type="button" value="OK" onclick="send_cmd('mt ' + document.getElementById('motion_threshold').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Clipping factor (2-50) default 3:</td>
-                           <td>
-                              <?php makeInput('motion_clip', 5); ?><input type="button" value="OK" onclick="send_cmd('mc ' + document.getElementById('motion_clip').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Mask Image:</td>
-                           <td>
-                              <?php makeInput('motion_image', 30); ?><input type="button" value="OK" onclick="send_cmd('mi ' + document.getElementById('motion_image').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Change Frames to start:</td>
-                           <td>
-                              <?php makeInput('motion_startframes', 5); ?><input type="button" value="OK" onclick="send_cmd('mb ' + document.getElementById('motion_startframes').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Still Frames to stop:</td>
-                           <td>
-                              <?php makeInput('motion_stopframes', 5); ?><input type="button" value="OK" onclick="send_cmd('me ' + document.getElementById('motion_stopframes').value)">
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>Save vectors to .dat :<br>Uses more space</td>
-                           <td><select onchange="send_cmd('mf ' + this.value);"><?php makeOptions($options_mf, 'motion_file'); ?></select></td>
-                        </tr>
-                     </table>
-                  </div>
-               </div>
-            </div>
+
             <div class="panel panel-default">           
 			  <div class="panel-body">
 				 <input id="toggle_stream" type="button" class="btn btn-primary" value="<?php echo $streamButton; ?>" onclick="set_stream_mode(this.value);">
 				 <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
 				 <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
 				 <input id="reset_button" type="button" value="reset settings" onclick="send_cmd('rs 1');setTimeout(function(){location.reload(true);}, 1000);" class="btn btn-danger">
-				 <form action='<?php echo ROOT_PHP; ?>' method='POST'>
-					<br>Style
-					<select name='extrastyle' id='extrastyle'>
-					   <?php getExtraStyles(); ?>
-					</select>
-					&nbsp;<button type="submit" name="OK" value="OK" >OK</button>
-				 </form>
 			  </div>
             </div>
          </div>
       </div>
-      <?php if ($debugString != "") echo "$debugString<br>"; ?>
    </body>
 </html>
