@@ -206,19 +206,10 @@
          </div>
       </div>
  
-	  <a href="preview.php" class="btn btn-default">Download Videos and Images</a>
-    
-      <div class="container-fluid text-center">
+	<a href="preview.php" class="btn btn-default">Download Videos and Images</a>
+    	<input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
+	<input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
 
-            <div class="panel panel-default">           
-			  <div class="panel-body">
-				 <input id="toggle_stream" type="button" class="btn btn-primary" value="<?php echo $streamButton; ?>" onclick="set_stream_mode(this.value);">
-				 <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
-				 <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
-				 <input id="reset_button" type="button" value="reset settings" onclick="send_cmd('rs 1');setTimeout(function(){location.reload(true);}, 1000);" class="btn btn-danger">
-			  </div>
-            </div>
-         </div>
       </div>
    </body>
 </html>
