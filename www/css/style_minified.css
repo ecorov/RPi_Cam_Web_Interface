@@ -6255,9 +6255,7 @@ button.close {
         display: none !important
     }
 }
-body {
-    padding-top: 70px
-}
+
 .settingsTable {
     margin: 0 auto;
     text-align: left
