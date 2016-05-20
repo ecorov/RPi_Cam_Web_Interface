@@ -178,7 +178,6 @@
 
 <html>
    <head>
-      <meta name="viewport" content="width=550, initial-scale=1">
       <link rel="stylesheet" href="css/style_minified.css" />
       <script src="js/style_minified.js"></script>
       <script src="js/script.js"></script>
@@ -186,7 +185,6 @@
    </head>
    <body onload="setTimeout('init(<?php echo "$mjpegmode, $video_fps, $divider" ?>);', 100);">
       <input id="toggle_display" type="button" class="btn btn-primary" value="<?php echo $toggleButton; ?>" style="position:absolute;top:60px;right:10px;" onclick="set_display(this.value);">
-
       <div class="container-fluid text-center liveimage">
          <div><img id="mjpeg_dest" <?php echo getLoadClass() . getImgWidth();?> <?php if(file_exists("pipan_on")) echo "ontouchstart=\"pipan_start()\""; ?> onclick="toggle_fullscreen(this);" src="./loading.jpg"></div>
          <div id="main-buttons" <?php echo $displayStyle; ?> >
@@ -196,10 +194,7 @@
             <input id="md_button" type="button" class="btn btn-primary">
             <input id="halt_button" type="button" class="btn btn-danger">
          </div>
-      </div>
-      <div id="secondary-buttons" class="container-fluid text-center" <?php echo $displayStyle; ?> >
          <a href="preview.php" class="btn btn-default">Download Videos and Images</a>
-      </div>
          <input id="shutdown_button" type="button" value="shutdown system" onclick="sys_shutdown();" class="btn btn-danger">
          <input id="reboot_button" type="button" value="reboot system" onclick="sys_reboot();" class="btn btn-danger">
       </div>
